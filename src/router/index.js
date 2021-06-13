@@ -18,15 +18,15 @@ const router = new Router({
   }]
 })
 
-/* router.beforeEach((to, from, next) => {
+router.beforeEach((to, from, next) => {
   //to将要访问的路径
   //from 代表从那个路径跳转而来
   //next 是一个函数，表示放行
   //next()放行，next('/login')
-  if (to.path == 'login') return next()
+  if (to.path == '/login') return next()
   const tokenStr = window.sessionStorage.getItem('token')
   if (!tokenStr) return next('/login')
   next()
-}) */
+})
 
 export default router
