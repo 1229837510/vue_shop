@@ -11,18 +11,12 @@ import axios from 'axios'
 
 
 Vue.prototype.$http = axios
-axios.defaults.baseURL = 'https://getman.cn/echo'
+axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
 Vue.config.productionTip = false
-/* axios.all('*', function (req, res, next) {
-  //响应头指定了该响应的资源是否被允许与给定的origin共享。*表示所有域都可以访问，同时可以将*改为指定的url，表示只有指定的url可以访问到资源 
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", " Origin, X-Requested-With, Content-Type, Accept");
-  //允许请求资源的方式
-  res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-  res.header("X-Powered-By", ' 3.2.1');
-  res.header("Content-Type", "application/json;charset=utf-8");
-  next();
-}); */
+axios.interceptors.request.use(config => {
+  config.headers.Authorization = window.sessionStorage.getItem('token')
+  return config
+})
 
 /* eslint-disable no-new */
 new Vue({

@@ -10,11 +10,7 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {
-      target: 'https://getman.cn/echo',
-      changeOrigin: true,
-
-    },
+    proxyTable: {},
 
 
     // Various Dev Server settings

@@ -47,7 +47,7 @@ export default {
     return {
       loginForm: {
         username: 'admin',
-        password: 'admin123',
+        password: '123456',
       },
 
       loginFormRules: {
@@ -74,11 +74,10 @@ export default {
     login() {
       this.$refs.loginFormRef.validate(async vaild => {
         if (!vaild) return this.$message.console.error('登录失败')
-        /* const {data : res} = await this.$http.post("login", this.loginForm);
-        console.log(res); */
+        const { data: res } = await this.$http.post('login', this.loginForm)
+        if (res.meta.status != 200) return this.$message.error('登录失败')
         this.$message.success('登录成功')
-        /* window.sessionStorage.setItem("token", res.data.token); */
-        console.log(this.loginForm)
+        window.sessionStorage.setItem('token', res.data.token)
         this.$router.push('/home')
       })
     },
