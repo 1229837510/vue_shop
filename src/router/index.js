@@ -4,30 +4,56 @@ import Login from '../components/Login.vue'
 import Home from '../components/Home.vue'
 import Welcome from '../components/Welcome.vue'
 import Users from '../components/user/Users.vue'
+import Author from '../components/power/Author.vue'
+import Roles from '../components/power/Roles.vue'
+import Goods from '../components/goods/Goods.vue'
+import Params from '../components/goods/Params.vue'
+import Categories from '../components/goods/Categories.vue'
 Vue.use(Router)
 
 const router = new Router({
   routes: [{
-    path: '/',
-    redirect: '/login'
-  }, {
-    path: '/login',
-    name: Login,
-    component: Login
-  }, {
-    path: '/home',
-    component: Home,
-    redirect: '/welcome',
-    children: [{
-        path: '/welcome',
-        component: Welcome
-      },
-      {
-        path: '/users',
-        component: Users
-      }
-    ]
-  }]
+      path: '/',
+      redirect: '/login'
+    }, {
+      path: '/login',
+      name: Login,
+      component: Login
+    }, {
+      path: '/home',
+      component: Home,
+      redirect: '/welcome',
+      children: [{
+          path: '/welcome',
+          component: Welcome
+        },
+        {
+          path: '/users',
+          component: Users
+        },
+        {
+          path: '/rights',
+          component: Author
+        }, {
+          path: '/roles',
+          component: Roles
+        },
+        {
+          path: '/goods',
+          component: Goods
+        },
+        {
+          path: '/params',
+          component: Params
+        },
+        {
+          path: '/categories',
+          component: Categories
+        }
+      ]
+    },
+
+  ]
 })
 
 router.beforeEach((to, from, next) => {
