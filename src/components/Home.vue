@@ -12,7 +12,9 @@
     <el-container>
       <!-- 侧边栏区域 -->
       <el-aside :width="isCollapse ? '64px' : '200px'">
-        <div class="tog-button" @click="toggleCollapse">|||</div>
+        <div class="tog-button" @click="toggleCollapse">
+          <i :class="isCollapse ? 'el-icon-s-fold' : 'el-icon-s-fold'"></i>
+        </div>
         <!-- 侧边栏菜单 -->
         <el-menu
           background-color="#185168"
@@ -131,7 +133,7 @@ export default {
 }
 .tog-button {
   background-color: rgb(24, 81, 104);
-  font-size: 20px;
+  font-size: 24px;
   text-align: center;
   line-height: 24px;
   letter-spacing: 0.2em;
